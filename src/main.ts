@@ -17,5 +17,6 @@ async function bootstrap() {
   SwaggerModule.setup('swagger', app, documentFactory);
   
   await app.listen(process.env.PORT ?? 3000);
+  console.log("Puerto utilizado: ", process.env.PORT ?? 3000)
 }
 bootstrap();

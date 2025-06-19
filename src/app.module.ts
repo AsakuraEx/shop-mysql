@@ -9,7 +9,7 @@ import { ProductModule } from './modules/product/product.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '12345678',
+      password: '',
       database: 'shop-nest',
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,

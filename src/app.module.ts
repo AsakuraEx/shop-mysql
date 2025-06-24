@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './modules/product/product.module';
 import { ClientModule } from './modules/client/client.module';
+import { OrderModule } from './modules/order/order.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ClientModule } from './modules/client/client.module';
       retryDelay: 10000
     }),
     ProductModule,
-    ClientModule
+    ClientModule,
+    OrderModule
   ],
 })
 export class AppModule {}

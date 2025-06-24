@@ -14,7 +14,7 @@ export class Client {
     @Column({ type: String, nullable: false, length: 30, unique:true})
     email: string;
 
-    @OneToOne(() => Address, { cascade: ['insert'] })
+    @OneToOne(() => Address, { cascade: ['insert', 'update'], eager: true, onDelete: 'CASCADE' })
     @JoinColumn()
     address: addressDto;
 

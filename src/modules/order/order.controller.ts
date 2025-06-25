@@ -17,6 +17,11 @@ export class OrderController {
         return this.orderService.getPendingOrders();
     }
 
+    @Get('/confirmed')
+    getConfirmedOrders(){
+        return this.orderService.getConfirmedOrders();
+    }
+
     @Get('/:id')
     getOrderById(@Param('id') id: string){
         return this.orderService.getOrderById(id);

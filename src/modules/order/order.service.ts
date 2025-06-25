@@ -1,6 +1,6 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IsNull, Repository } from 'typeorm';
+import { IsNull, Not, Repository } from 'typeorm';
 import { Order } from './entity/order.entity';
 import { ClientService } from '../client/client.service';
 import { ProductService } from '../product/product.service';
@@ -55,6 +55,12 @@ export class OrderService {
     getPendingOrders() {
         return this.orderRepository.find({
             where: { confirmAt: IsNull() }
+        })
+    }
+    
+    getConfirmedOrders() {
+        return this.orderRepository.find({
+            where: { confirmAt: Not(IsNull()) }
         })
     }
 

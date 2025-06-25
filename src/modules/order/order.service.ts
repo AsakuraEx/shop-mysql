@@ -58,10 +58,16 @@ export class OrderService {
         })
     }
     
-    getConfirmedOrders() {
-        return this.orderRepository.find({
-            where: { confirmAt: Not(IsNull()) }
-        })
+    getConfirmedOrders(start: Date, end: Date) {
+
+        if(!isNaN(start.getTime()) || !isNaN(start.getTime())){
+
+        }else{
+            return this.orderRepository.find({
+                where: { confirmAt: Not(IsNull()) }
+            })
+        }
+
     }
 
 }

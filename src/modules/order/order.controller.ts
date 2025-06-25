@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { OrderDto } from './dto/order-dto';
 
@@ -18,8 +18,12 @@ export class OrderController {
     }
 
     @Get('/confirmed')
-    getConfirmedOrders(){
-        return this.orderService.getConfirmedOrders();
+    getConfirmedOrders(@Query('start') start: Date, @Query('end') end: Date){
+
+        console.log(start)
+        console.log(end)
+
+        return this.orderService.getConfirmedOrders(start, end);
     }
 
     @Get('/:id')
